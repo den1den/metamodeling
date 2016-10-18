@@ -17,3 +17,4 @@ model/*.trace
 .project
 .settings/
 src/declare/
+*.ecore.xml
