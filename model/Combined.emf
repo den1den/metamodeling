@@ -23,7 +23,7 @@ abstract class PetriNetEntity {
   attr String name;
 }
 
-@gmf.node(label = "name", figure = "myfigure.MyShape")
+@gmf.node(label = "name")
 class Transition extends PetriNetEntity  {
 
 }
@@ -42,7 +42,7 @@ class InputArc extends Constraint {
   ref Place[1] inputArcFromPlace;
 }
 
-@gmf.node(label = "name",figure = "ellipse")
+@gmf.node(label = "name")
 class Place extends PetriNetEntity {
   attr int capacity;
   attr int numberOfTokens;
@@ -52,6 +52,7 @@ abstract class Constraint {
   attr boolean negated;
 }
 
+@gmf.node(figure = "myfigure.StringBoxShape.Init")
 class Initial extends Activity {
 }
 
