@@ -1,0 +1,81 @@
+@namespace(uri="WakeMeUp", prefix="WakeMeUp")
+@gmf
+package Declare;
+
+@gmf.diagram
+class DeclareModel {
+  val Activity[*] activities;
+  val Constraint[*] constraints;
+}
+@gmf.node(label="name")
+class Activity {
+  attr String name;
+  attr int lowerBoundCardinality;
+  attr int upperBoundCardinality;
+  ref Directional[*] directed_to;
+  ref Directional[*] directed_from;
+  @gmf.compartment
+  val PetriNetEntity[*] boomMofos;
+}
+abstract class PetriNetEntity {
+  attr String name;
+}
+@gmf.node(label = "name", figure = "rounded")
+class Transition extends PetriNetEntity  {
+
+}
+@gmf.link(source = "outputArcFromTransition", target = "outputArcToPlace", target.decoration="arrow")
+class OutputArc extends Constraint {
+  attr int weight;
+  ref Place[1] outputArcToPlace;
+  ref Transition[1] outputArcFromTransition;
+}
+@gmf.link(source = "inputArcFromPlace", target = "inputArcToTransition", target.decoration="arrow")
+class InputArc extends Constraint {
+  attr int weight;
+  ref Transition[1] inputArcToTransition;
+  ref Place[1] inputArcFromPlace;
+}
+@gmf.node(label = "name",figure = "ellipse")
+class Place extends PetriNetEntity {
+  attr int capacity;
+  attr int numberOfTokens;
+}
+
+abstract class Constraint {
+  attr boolean negated;
+}
+
+class Initial extends Activity {
+}
+
+class Last extends Activity {
+}
+@gmf.link(source = "activity_from", target = "activity_to")
+abstract class Directional extends Constraint {
+  ref Activity[1] activity_from;
+  ref Activity[1] activity_to;
+}
+
+
+
+abstract class Arrowless extends Directional {
+}
+
+abstract class Arrowed extends Directional {
+  attr int lines;
+}
+
+class Response extends Arrowed {
+}
+
+class Precedence extends Arrowed {
+}
+
+class Succession extends Arrowed {
+}
+
+class RespondedExistence extends Arrowless {
+}
+
+
