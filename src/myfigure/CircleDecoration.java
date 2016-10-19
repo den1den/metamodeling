@@ -4,15 +4,15 @@ import org.eclipse.draw2d.PolygonDecoration;
 import org.eclipse.draw2d.geometry.PointList;
 
 public class CircleDecoration extends PolygonDecoration{
+	
 	public CircleDecoration(){
 		setTemplate(generatePointList());
+		setScale(0.1, 0.1); // Actual size
 	}
 
 	private PointList generatePointList() {
-		//TODO: Test this, not done yet
-		
-		int delta = 10;
-		double r = 5;
+		int delta = 15; // Number of conrners in the cirlce
+		double r = 50; // Integer difference in the points
 		double da = Math.PI / delta;
 		PointList pl = new PointList(delta);
 		for(double a = 0; a < Math.PI * 2; a += da){
