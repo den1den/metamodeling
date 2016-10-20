@@ -1,6 +1,30 @@
-// Add italic font to actionLabel
-var lastLabel = GmfGraph!Label.all.
-	selectOne(l|l.name="LastLabelFigure");
-lastLabel.font = new GmfGraph!BasicFont;
-lastLabel.font.style = GmfGraph!FontStyle#ITALIC;
-lastLabel.text = 'I changed the text of Last Actitivyt to this :)';
+// FIXME: not done yet
+
+
+// Set ResponseFigure linewidth to 10
+//var responsePolyLine = GmfGraph!PolylineConnection.all.
+//	selectOne(l|l.name="ResponseFigure");
+//responsePolyLine.linewidth=10;
+
+// Print all ResponseFigure
+for (fig in GmfGraph!Figure.all.select(l|l.name="ResponseFigure")){
+	System.out.println(fig.name + ": " + fig.children.size());
+}
+System.out.println("\n");
+
+// modify ResponseFigure
+var responsePL = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
+responsePL.name="ResponseFigure.old";
+responsePL = new GmfGraph!PolylineConnection;
+responsePL.name="ResponseFigure";
+responsePL.linewidth=10;
+GmfGraph!PolylineConnection.all.add(responsePL);
+
+
+// Print all Figures
+for (fig in GmfGraph!Figure.all){
+	System.out.println(fig.name + ": " + fig.children.size());
+	for (child in fig.children) {
+		System.out.println(" - " + child.name);
+	}
+}
