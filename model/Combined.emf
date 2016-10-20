@@ -42,12 +42,14 @@ class InputArc extends Constraint {
   ref Place[1] inputArcFromPlace;
 }
 
-@gmf.node(label = "name")
-class Place extends PetriNetEntity {
+abstract class Place extends PetriNetEntity {
   attr int capacity;
   attr int numberOfTokens;
 }
-
+@gmf.node(label = "name",figure = "ellipse",color="0,0,255")
+class OrdinaryPlace extends Place {
+	
+}
 abstract class Constraint {
   attr boolean negated;
 }
@@ -64,14 +66,17 @@ abstract class Directional extends Constraint {
   ref Activity[1] activity_from;
   ref Activity[1] activity_to;
 }
-
+@gmf.node(label = "name",figure = "myfigure.ElipseWithDot")
+class StartPlace extends Place {
+	
+}
 abstract class Arrowless extends Directional {
 }
 
 abstract class Arrowed extends Directional {
   attr int lines;
 }
-
+@gmf.link(target.decoration="arrow", source.decoration = "myfigure.CircleDecoration")
 class Response extends Arrowed {
 }
 
@@ -80,6 +85,9 @@ class Precedence extends Arrowed {
 
 class Succession extends Arrowed {
 }
-
+@gmf.link(target.decoration = "myfigure.CircleDecoration", source.decoration = "myfigure.CircleDecoration")
+class CoExistence extends Arrowed {
+}
+@gmf.link(target.decoration = "myfigure.CircleDecoration")
 class RespondedExistence extends Arrowless {
 }
