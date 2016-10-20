@@ -1,0 +1,6 @@
+// Add italic font to actionLabel
+var lastLabel = GmfGraph!Label.all.
+	selectOne(l|l.name="LastLabelFigure");
+lastLabel.font = new GmfGraph!BasicFont;
+lastLabel.font.style = GmfGraph!FontStyle#ITALIC;
+lastLabel.text = 'I changed the text of Last Actitivyt to this :)';
