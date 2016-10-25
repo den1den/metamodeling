@@ -1,0 +1,128 @@
+@namespace(uri="finalmodel", prefix="")
+package finalmodel;
+
+@gmf.diagram
+class DeclareModel {
+  val Activity[*] activities;
+  val Constraint[*] constraints;
+  val ChoiseTemplate[*] choiseTemplates;
+  val ChoiseTemplateConnection[*] choiseLines;
+}
+
+@gmf.node(label="name")
+class Activity {
+  attr String name;
+  attr int lowerBoundCardinality;
+  attr int upperBoundCardinality;
+  ref Constraint[*]#source outgoing;
+  ref Constraint[*]#target incoming;
+  ref ChoiseTemplateConnection[*] choiseLines;
+  @gmf.compartment
+  val PetriNetElement[*] petriNetElements;
+}
+
+@gmd.node(figure="myfigure.StringBoxShape.Init")
+class Initial extends Activity {
+}
+
+class Last extends Activity {
+}
+
+@gmf.link(source="source", target="target")
+abstract class Constraint {
+  attr boolean negated;
+  ref Activity[1]#outgoing source;
+  ref Activity[1]#incoming target;
+}
+
+abstract class Directional extends Constraint {
+}
+
+abstract class Arrowed extends Directional {
+}
+
+abstract class Arrowless extends Directional {
+}
+
+@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
+class CoExistence extends Constraint {
+}
+
+@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="arrow")
+class Response extends Arrowed {
+}
+
+@gmf.link(target.decoration="myfigure.CircleArrowDecoration")
+class Precendence extends Arrowed {
+}
+
+@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleArrowDecoration")
+class Succesion extends Arrowed {
+}
+
+@gmf.link(source.decoration="myfigure.CircleDecoration")
+class RespondedExistence extends Arrowless {
+}
+
+@gmf.node(label.placement="none", figure="polygon", polygon.x="0 20 40 20", polygon.y="20 40 20 0")
+class ChoiseTemplate {
+  attr int min;
+  attr int max;
+  attr boolean exclusive;
+  ref ChoiseTemplateConnection[*] choiseLines;
+}
+
+@gmf.link(source="activity", target="choiseTemplate", incoming="true")
+class ChoiseTemplateConnection {
+  ref ChoiseTemplate[1] choiseTemplate;
+  ref Activity[1] activity;
+}
+
+/******************* Petrinet *******************/
+
+abstract class PetriNetElement {
+}
+
+@gmf.node(label="name")
+class Transition extends PetriNetElement {
+  attr String name;
+  ref InputArc[*] incomming;
+  ref OutputArc[*] outgoing;
+}
+
+@gmf.node(label="name", figure="ellipse")
+abstract class AbstractPlace extends PetriNetElement {
+  attr String name;
+  attr int capacity;
+  attr int numberOfTokens;
+  ref InputArc[*] outgoing;
+  ref OutputArc[*] incomming;
+}
+
+@gmf.node(figure="myfigure.ElipseWithDot")
+class StartPlace extends AbstractPlace {
+}
+
+@gmf.node(border.width="2")
+class EndPlace extends AbstractPlace {
+}
+
+class Place extends AbstractPlace {
+	
+}
+
+@gmf.link(source="source", target="target", target.decoration="arrow")
+abstract class Arc extends PetriNetElement {
+}
+
+@gmf.link()
+class InputArc extends Arc {
+  ref AbstractPlace[1] source;
+  ref Transition[1] target;
+}
+
+@gmf.link()
+class OutputArc extends Arc {
+  ref Transition[1] source;
+  ref AbstractPlace[1] target;
+}
