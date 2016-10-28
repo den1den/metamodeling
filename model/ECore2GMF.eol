@@ -1,30 +1,116 @@
-// FIXME: not done yet
+var ecore_association = ECore!EClass.all.selectOne(c|c.name = "Association");
+var activity_label = GmfGraph!Label.all.selectOne(l|l.name="ActivityLabelFigure");
+
+//var co_existence_label = new GmfGraph!Label;
+//co_existence_label.name = 'RuleNacsCompartmentFigureLabel';
+//co_existence_label.text = 'NACs Compartment';
+//co_existence.children.add(co_existence_label);
+
+//var association = ECore!EClass.all.selectOne(c|c.name = "CoExistence");
+//association.createLinkEndLabel("dummyLabel", true);
+
+//activity_label.makeVertical();
+var coExistence = ECore!EClass.all.selectOne(c|c.name = "CoExistence");
+coExistence.addLabel("CoExistence");
+
+operation ECore!EClass addLabel(labelText:String){
+  var labelName = self.name + "EolLabel";
+  
+  // Create the figure descriptor and the label
+  var labelFigureDescriptor = 
+    createFigureDescriptor(labelName + "Figure");
+  var label = new GmfGraph!Label;
+  label.name = labelName;
+  label.text = labelText;
+  labelFigureDescriptor.actualFigure = label;
+  
+  // Create the diagram label
+  var diagramLabel = new GmfGraph!DiagramLabel;
+  diagramLabel.figure = labelFigureDescriptor;
+  diagramLabel.name = labelName;
+  diagramLabel.elementIcon = false;
+  GmfGraph!Canvas.all.first().labels.add(diagramLabel);
+  
+  // Specify if the label will be placed at the beginning/end of the link
+  var alignmentFacet =new GmfGraph!AlignmentFacet;
+  alignmentFacet.alignment = GmfGraph!Alignment#CENTER;
+  diagramLabel.facets.add(alignmentFacet);
+  
+  // Specify how far the label should be from the line
+  var labelOffsetFacet = new GmfGraph!LabelOffsetFacet;
+  labelOffsetFacet.x = 5;
+  labelOffsetFacet.y = 5;
+  diagramLabel.facets.add(labelOffsetFacet);
+  
+  // Create the label/attribute mapping in the .gmfmap model
+  var labelMapping = new GmfMap!LabelMapping;
+  labelMapping.diagramLabel = diagramLabel;
+  
+  var linkMapping = GmfMap!LinkMapping.all.selectOne(lm|lm.domainMetaElement = self);
+  linkMapping.labelMappings.add(labelMapping);
+}
+
+operation createFigureDescriptor(name : String) {
+  var figureDescriptor = new GmfGraph!FigureDescriptor;
+  figureDescriptor.name = name;
+  GmfGraph!FigureGallery.all.first().descriptors.add(figureDescriptor);
+  return figureDescriptor;
+}
+
+operation GmfGraph!Label makeVertical() {
+	var labelFigure = self;
+	var labelFigureName = labelFigure.name;
+	var labelFigureText = labelFigure.text;
+	var figure = labelFigure.eContainer();
+	var labelFigureChildAccess = GmfGraph!ChildAccess.all.selectOne(ca|ca.figure = labelFigure);
+	delete labelFigure;
+	labelFigure = new GmfGraph!VerticalLabel;
+	labelFigure.name = labelFigureName;
+	labelFigure.text = labelFigureText;
+	figure.children.add(0, labelFigure);
+	labelFigureChildAccess.figure = labelFigure;
+}
 
 
-// Set ResponseFigure linewidth to 10
-//var responsePolyLine = GmfGraph!PolylineConnection.all.
-//	selectOne(l|l.name="ResponseFigure");
+
+
+//var responsePolyLine = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
 //responsePolyLine.linewidth=10;
 
-// Print all ResponseFigure
-for (fig in GmfGraph!Figure.all.select(l|l.name="ResponseFigure")){
-	System.out.println(fig.name + ": " + fig.children.size());
-}
-System.out.println("\n");
-
 // modify ResponseFigure
-var responsePL = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
-responsePL.name="ResponseFigure.old";
-responsePL = new GmfGraph!PolylineConnection;
-responsePL.name="ResponseFigure";
-responsePL.linewidth=10;
-GmfGraph!PolylineConnection.all.add(responsePL);
+//var responsePL = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
+//responsePL.name="ResponseFigure.old";
+//responsePL = new GmfGraph!PolylineConnection;
+//responsePL.name="ResponseFigure";
+//responsePL.linewidth=10;
+//GmfGraph!PolylineConnection.all.add(responsePL);
 
+//for(x in GmfMap!Link.all) {
+//	System.out.println("x: " + x);
+//}
+// FROM MAPPING
+//<links>
+//    <domainMetaElement
+//        href="Combined.ecore#//Response"/>
+ //   <containmentFeature
+  //      href="Combined.ecore#//DeclareModel/constraints"/>
+   // <tool
+    //    xsi:type="gmftool:CreationTool"
+     //   href="Combined.gmftool#//@palette/@tools.1/@tools.5"/>
+//    <diagramLink
+ ///       href="Combined.gmfgraph#Response"/>
+   // <sourceMetaFeature
+    //    xsi:type="ecore:EReference"
+     //   href="Combined.ecore#//Directional/activity_from"/>
+//    <linkMetaFeature
+ ///       xsi:type="ecore:EReference"
+   //     href="Combined.ecore#//Directional/activity_to"/>
+  //</links>
 
 // Print all Figures
-for (fig in GmfGraph!Figure.all){
-	System.out.println(fig.name + ": " + fig.children.size());
-	for (child in fig.children) {
-		System.out.println(" - " + child.name);
-	}
-}
+//for (fig in GmfGraph!Figure.all){
+//	System.out.println(fig.name + ": " + fig.children.size());
+//	for (child in fig.children) {
+//		System.out.println(" - " + child.name);
+//	}
+//}
