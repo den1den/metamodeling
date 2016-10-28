@@ -5,14 +5,22 @@ import org.eclipse.draw2d.geometry.PointList;
 
 public class CircleDecoration extends PolygonDecoration {
 	
+	public static float NORMAL_SCALE = 0.01f;
+	public static float THICK_SCALE = 0.0120f;
+	public static float THICKER_SCALE = 0.0145f;
+
 	public CircleDecoration(){
-		setTemplate(generatePointList());
-		setScale(0.1, 0.1); // Actual size
+		this(CircleDecoration.NORMAL_SCALE);
+	}
+	
+	public CircleDecoration(float size){
+		setTemplate(CircleDecoration.generatePointList());
+		setScale(size, size); // Actual size
 	}
 
 	private static PointList generatePointList() {
-		int delta = 15; // Number of corners in the circle
-		double r = 50; // Integer difference in the points
+		int delta = 25; // Number of corners in the circle
+		double r = 500; // Integer difference in the points
 		double da = Math.PI / delta;
 		PointList pl = new PointList(delta);
 		for(double a = 0; a < Math.PI * 2; a += da){
@@ -21,5 +29,17 @@ public class CircleDecoration extends PolygonDecoration {
 			pl.addPoint((int)x, (int)y);
 		}
 		return pl;
+	}
+	
+	public static class Thick extends CircleDecoration{
+		public Thick(){
+			super(CircleDecoration.THICK_SCALE);
+		}
+	}
+	
+	public static class Thicker extends CircleDecoration{
+		public Thicker(){
+			super(CircleDecoration.THICKER_SCALE);
+		}
 	}
 }

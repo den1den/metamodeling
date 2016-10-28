@@ -10,11 +10,35 @@ var activity_label = GmfGraph!Label.all.selectOne(l|l.name="ActivityLabelFigure"
 //association.createLinkEndLabel("dummyLabel", true);
 
 //activity_label.makeVertical();
-var coExistence = ECore!EClass.all.selectOne(c|c.name = "CoExistence");
-coExistence.addLabel("CoExistence");
+setLabelToClassname("CoExistence", 0);
+setLabelToClassname("AlternatedCoExistence", 1);
+setLabelToClassname("ChainCoExistence", 2);
+setLabelToClassname("Response", 0);
+setLabelToClassname("AlternatedResponse", 1);
+setLabelToClassname("ChainResponse", 2);
+setLabelToClassname("Precendence", 0);
+setLabelToClassname("AlternatedPrecendence", 1);
+setLabelToClassname("ChainPrecendence", 2);
+setLabelToClassname("Succesion", 0);
+setLabelToClassname("AlternatedSuccesion", 1);
+setLabelToClassname("ChainSuccesion", 2);
+setLabelToClassname("RespondedExistence", 0);
+setLabelToClassname("AlternatedRespondedExistence", 1);
+setLabelToClassname("ChainRespondedExistence", 2);
 
-operation ECore!EClass addLabel(labelText:String){
+operation setLabelToClassname(classname:String, lineWidthType:Integer){
+	var claz = ECore!EClass.all.selectOne(c|c.name = classname);
+	claz.addLabel(classname, lineWidthType);
+}
+
+operation ECore!EClass addLabel(labelText:String, lineWidthType:Integer){
   var labelName = self.name + "EolLabel";
+  var lineWidth = 1;
+  if (lineWidthType == 1) {
+  	lineWidth = 3;
+  } else if (lineWidthType >= 2) {
+  	lineWidth = 5;
+  }
   
   // Create the figure descriptor and the label
   var labelFigureDescriptor = 
@@ -48,6 +72,45 @@ operation ECore!EClass addLabel(labelText:String){
   
   var linkMapping = GmfMap!LinkMapping.all.selectOne(lm|lm.domainMetaElement = self);
   linkMapping.labelMappings.add(labelMapping);
+  
+  //Set line width
+  var ployLine = linkMapping.diagramLink.figure.actualFigure;
+  ployLine.lineWidth=lineWidth;
+  System.out.println(ployLine.name);
+  
+  if(ployLine.sourceDecoration.isDefined()){
+  	var sourceDecoration = ployLine.sourceDecoration;
+  	if(sourceDecoration.isTypeOf(GmfGraph!CustomDecoration)){
+  		if (lineWidthType == 1) {
+  			sourceDecoration.qualifiedClassName += ".Thick";
+  		} else if(lineWidthType >= 2) {
+  			sourceDecoration.qualifiedClassName += ".Thicker";
+  		}
+  		
+  		System.out.println("s: "+sourceDecoration.qualifiedClassName);
+  	} else {
+    	sourceDecoration.lineWidth=lineWidth;
+    	System.out.println("s: "+sourceDecoration.type.name);
+    }
+  	//sourceDecoration.lineWidth=lineWidth;
+  }
+  if(ployLine.targetDecoration.isDefined()){
+  	var targetDecoration = ployLine.targetDecoration;
+  	if(targetDecoration.isTypeOf(GmfGraph!CustomDecoration)){
+  		if (lineWidthType == 1) {
+  			targetDecoration.qualifiedClassName += ".Thick";
+  		} else if(lineWidthType >= 2) {
+  			targetDecoration.qualifiedClassName += ".Thicker";
+  		}
+  		
+  		System.out.println("t: "+targetDecoration.qualifiedClassName);
+    } else {
+    	targetDecoration.lineWidth=lineWidth;
+    	System.out.println("t: "+targetDecoration.type.name);
+    }
+  	//targetDecoration.lineWidth=lineWidth;
+  }
+  System.out.println();
 }
 
 operation createFigureDescriptor(name : String) {
@@ -55,20 +118,6 @@ operation createFigureDescriptor(name : String) {
   figureDescriptor.name = name;
   GmfGraph!FigureGallery.all.first().descriptors.add(figureDescriptor);
   return figureDescriptor;
-}
-
-operation GmfGraph!Label makeVertical() {
-	var labelFigure = self;
-	var labelFigureName = labelFigure.name;
-	var labelFigureText = labelFigure.text;
-	var figure = labelFigure.eContainer();
-	var labelFigureChildAccess = GmfGraph!ChildAccess.all.selectOne(ca|ca.figure = labelFigure);
-	delete labelFigure;
-	labelFigure = new GmfGraph!VerticalLabel;
-	labelFigure.name = labelFigureName;
-	labelFigure.text = labelFigureText;
-	figure.children.add(0, labelFigure);
-	labelFigureChildAccess.figure = labelFigure;
 }
 
 

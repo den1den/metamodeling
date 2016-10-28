@@ -6,13 +6,17 @@ import org.eclipse.draw2d.geometry.PointList;
 public class CircleArrowDecoration extends PolygonDecoration {
 	
 	public CircleArrowDecoration(){
-		setTemplate(generatePointList());
-		setScale(0.1, 0.1); // Actual size
+		this(CircleDecoration.NORMAL_SCALE);
+	}
+	
+	public CircleArrowDecoration(float size){
+		setTemplate(CircleArrowDecoration.generatePointList());
+		setScale(size, size); // Actual size
 	}
 
 	private static PointList generatePointList() {
-		int delta = 15; // Number of corners in the circle
-		double r = 50; // Integer difference in the points
+		int delta = 25; // Number of corners in the circle
+		double r = 500; // Integer difference in the points
 		double da = Math.PI / delta;
 		PointList pl = new PointList(delta);
 		for(double a = 0; a <= Math.PI * 2; a += da){
@@ -23,5 +27,17 @@ public class CircleArrowDecoration extends PolygonDecoration {
 		pl.addPoint((int)(-3.5 * r), (int)(-r));
 		pl.addPoint((int)(-3.5 * r), (int)(r));
 		return pl;
+	}
+	
+	public static class Thick extends CircleArrowDecoration{
+		public Thick(){
+			super(CircleDecoration.THICK_SCALE);
+		}
+	}
+	
+	public static class Thicker extends CircleArrowDecoration{
+		public Thicker(){
+			super(CircleDecoration.THICKER_SCALE);
+		}
 	}
 }
