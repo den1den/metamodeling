@@ -10,25 +10,38 @@ var activity_label = GmfGraph!Label.all.selectOne(l|l.name="ActivityLabelFigure"
 //association.createLinkEndLabel("dummyLabel", true);
 
 //activity_label.makeVertical();
-setLabelToClassname("CoExistence", 0);
-setLabelToClassname("AlternatedCoExistence", 1);
-setLabelToClassname("ChainCoExistence", 2);
-setLabelToClassname("Response", 0);
-setLabelToClassname("AlternatedResponse", 1);
-setLabelToClassname("ChainResponse", 2);
-setLabelToClassname("Precendence", 0);
-setLabelToClassname("AlternatedPrecendence", 1);
-setLabelToClassname("ChainPrecendence", 2);
-setLabelToClassname("Succesion", 0);
-setLabelToClassname("AlternatedSuccesion", 1);
-setLabelToClassname("ChainSuccesion", 2);
-setLabelToClassname("RespondedExistence", 0);
-setLabelToClassname("AlternatedRespondedExistence", 1);
-setLabelToClassname("ChainRespondedExistence", 2);
 
-operation setLabelToClassname(classname:String, lineWidthType:Integer){
-	var claz = ECore!EClass.all.selectOne(c|c.name = classname);
-	claz.addLabel(classname, lineWidthType);
+
+for (negClass in ECore!EClass.all.select(c | c.name.startsWith("Not"))) {
+	var lineWidthType = 0;
+	var label = negClass.name.substring(3, negClass.name.length());
+	if(negClass.name.startsWith("NotAlt")){
+		lineWidthType = 1;
+	} else if(negClass.name.startsWith("NotChain")){
+		lineWidthType = 2;
+	}
+	negClass.addLabel("!" + label, lineWidthType);
+}
+
+init("RespondedExistence");
+init("CoExistence");
+init("Response");
+init("Precendence");
+init("Succesion");
+
+operation init(conn:String){
+	var normalClass = ECore!EClass.all.selectOne(c|c.name = conn);
+	normalClass.addLabel(conn, 0);
+	
+	var altClass = ECore!EClass.all.selectOne(c|c.name = "Alternated" + conn);
+	altClass.addLabel("Alternated" + conn, 1);
+	
+	var chainClass = ECore!EClass.all.selectOne(c|c.name = "Chain" + conn);
+	chainClass.addLabel("Chain" + conn, 1);
+}
+
+operation ECore!EClass setNegatedPolyline(classname:String, lineWidthType:Integer){
+  System.out.println(classname + ".setNegatedPolyline()");
 }
 
 operation ECore!EClass addLabel(labelText:String, lineWidthType:Integer){

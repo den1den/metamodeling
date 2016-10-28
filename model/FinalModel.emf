@@ -32,6 +32,7 @@ class Initial extends Activity {
 class Last extends Activity {
 }
 
+/* Links */
 @gmf.link(source="source", target="target")
 abstract class Constraint {
   ref Activity[1]#outgoing source;
@@ -42,46 +43,7 @@ abstract class Constraint {
 abstract class Arrowed extends Constraint {
 }
 
-@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
-class CoExistence extends Constraint {
-}
-
-class AlternatedCoExistence extends CoExistence {
-}
-
-class ChainCoExistence extends CoExistence {
-}
-
-@gmf.link(source.decoration="myfigure.CircleDecoration")
-class Response extends Arrowed {
-}
-
-class AlternatedResponse extends Response {
-}
-
-class ChainResponse extends Response {
-}
-
-@gmf.link(target.decoration="myfigure.CircleArrowDecoration")
-class Precendence extends Arrowed {
-}
-
-class AlternatedPrecendence extends Precendence {
-}
-
-class ChainPrecendence extends Precendence {
-}
-
-@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleArrowDecoration")
-class Succesion extends Arrowed {
-}
-
-class AlternatedSuccesion extends Succesion {
-}
-
-class ChainSuccesion extends Succesion {
-}
-
+/* O------ */
 @gmf.link(source.decoration="myfigure.CircleDecoration")
 class RespondedExistence extends Constraint {
 }
@@ -92,6 +54,69 @@ class AlternatedRespondedExistence extends RespondedExistence {
 class ChainRespondedExistence extends RespondedExistence {
 }
 
+/* O-----O */
+@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
+class CoExistence extends Constraint {
+}
+
+class AlternatedCoExistence extends CoExistence {
+}
+
+class ChainCoExistence extends CoExistence {
+}
+
+class NotRespondedCoExistence extends CoExistence {
+}
+
+class NotAltRespondedCoExistence extends AlternatedCoExistence {
+}
+
+class NotChainRespondedCoExistence extends ChainCoExistence {
+}
+
+/* O-----> */
+@gmf.link(source.decoration="myfigure.CircleDecoration")
+class Response extends Arrowed {
+}
+
+class AlternatedResponse extends Response {
+}
+
+class ChainResponse extends Response {
+}
+
+/* ----->O */
+@gmf.link(target.decoration="myfigure.CircleArrowDecoration")
+class Precendence extends Arrowed {
+}
+
+class AlternatedPrecendence extends Precendence {
+}
+
+class ChainPrecendence extends Precendence {
+}
+
+/* O---->O */
+@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleArrowDecoration")
+class Succesion extends Arrowed {
+}
+
+class AlternatedSuccesion extends Succesion {
+}
+
+class ChainSuccesion extends Succesion {
+}
+
+class NotRespPrecSucc extends Succesion {
+}
+
+class NotAltNotRespPrecSucc extends AlternatedSuccesion {
+}
+
+class NotChainNotRespPrecSucc extends ChainSuccesion {
+}
+
+/* ChoiseTemplate */
 @gmf.node(label.placement="none", figure="polygon", polygon.x="0 20 40 20", polygon.y="20 40 20 0")
 class ChoiseTemplate {
   attr int min;
