@@ -14,7 +14,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3Cp67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3C567Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//DeclareModel"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//DeclareModel"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3Dp67Eea1xtGdw7av1A" x="492" y="36"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3D567Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -31,7 +31,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3GJ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3GZ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Constraint"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Constraint"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3HJ67Eea1xtGdw7av1A" x="504" y="156"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3HZ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -48,7 +48,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3Jp67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3J567Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Arrowed"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Arrowed"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3Kp67Eea1xtGdw7av1A" x="876" y="168"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3K567Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -65,7 +65,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3NJ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3NZ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//RespondedExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//RespondedExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3OJ67Eea1xtGdw7av1A" x="240" y="324"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3OZ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -82,7 +82,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3Qp67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3Q567Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//AlternatedRespondedExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//AlternatedRespondedExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3RJ67Eea1xtGdw7av1A" x="144" y="420"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3RZ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -99,7 +99,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzq3Tp67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzq3T567Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//ChainRespondedExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//ChainRespondedExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzq3UJ67Eea1xtGdw7av1A" x="276" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzq3UZ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -116,7 +116,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreFZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreFp67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//CoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//CoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreGZ67Eea1xtGdw7av1A" x="564" y="312"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreGp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -133,7 +133,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreI567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreJJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//AlternatedCoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//AlternatedCoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreJZ67Eea1xtGdw7av1A" x="456" y="408"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreJp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -150,7 +150,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreL567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreMJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//ChainCoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//ChainCoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreMZ67Eea1xtGdw7av1A" x="552" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreMp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -167,7 +167,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreO567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzrePJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotRespondedCoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotRespondedCoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzrePZ67Eea1xtGdw7av1A" x="696" y="312"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzrePp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -184,7 +184,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreR567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreSJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotAltRespondedCoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotAltRespondedCoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreSZ67Eea1xtGdw7av1A" x="648" y="408"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreSp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -201,7 +201,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreU567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreVJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotChainRespondedCoExistence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotChainRespondedCoExistence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreVZ67Eea1xtGdw7av1A" x="696" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreVp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -218,7 +218,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreX567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreYJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Response"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Response"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreY567Eea1xtGdw7av1A" x="936" y="312"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreZJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -235,7 +235,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzrebZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzrebp67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//AlternatedResponse"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//AlternatedResponse"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzreb567Eea1xtGdw7av1A" x="852" y="408"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzrecJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -252,7 +252,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreeZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzreep67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//ChainResponse"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//ChainResponse"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzree567Eea1xtGdw7av1A" x="936" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzrefJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -269,7 +269,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzrehZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzrehp67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Precendence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Precendence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreiZ67Eea1xtGdw7av1A" x="1104" y="324"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzreip67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -286,7 +286,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzrek567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzrelJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//AlternatedPrecendence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//AlternatedPrecendence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzrelZ67Eea1xtGdw7av1A" x="1008" y="408"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzrelp67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -303,7 +303,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzren567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzreoJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//ChainPrecendence"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//ChainPrecendence"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KzreoZ67Eea1xtGdw7av1A" x="1104" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzreop67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -320,7 +320,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzreq567Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KzrerJ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Succesion"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Succesion"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzrer567Eea1xtGdw7av1A" x="1272" y="324"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzresJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -337,7 +337,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzreuZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzreup67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//AlternatedSuccesion"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//AlternatedSuccesion"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzreu567Eea1xtGdw7av1A" x="1188" y="420"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzrevJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -354,7 +354,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_KzrexZ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzrexp67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//ChainSuccesion"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//ChainSuccesion"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzrex567Eea1xtGdw7av1A" x="1308" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KzreyJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -371,7 +371,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzre0Z67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzre0p67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotRespPrecSucc"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotRespPrecSucc"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzre0567Eea1xtGdw7av1A" x="1440" y="324"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzre1J67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -388,7 +388,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzre3Z67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzre3p67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotAltNotRespPrecSucc"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotAltNotRespPrecSucc"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzre3567Eea1xtGdw7av1A" x="1392" y="420"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Kzre4J67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -405,7 +405,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_Kzre6Z67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Kzre6p67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//NotChainNotRespPrecSucc"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//NotChainNotRespPrecSucc"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kzre6567Eea1xtGdw7av1A" x="1428" y="504"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_K0mEEJ67Eea1xtGdw7av1A" type="2001" fontName="Ubuntu">
@@ -422,11 +422,11 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_K0mrKJ67Eea1xtGdw7av1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_K0mrKZ67Eea1xtGdw7av1A"/>
     </children>
-    <element xmi:type="ecore:EClass" href="FinalModel.ecore#//Activity"/>
+    <element xmi:type="ecore:EClass" href="FinalModel-Constraints.ecore#//Activity"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K0mEEZ67Eea1xtGdw7av1A" x="84" y="72"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_Kzre7J67Eea1xtGdw7av1A"/>
-  <element xmi:type="ecore:EPackage" href="FinalModel.ecore#/"/>
+  <element xmi:type="ecore:EPackage" href="FinalModel-Constraints.ecore#/"/>
   <edges xmi:type="notation:Connector" xmi:id="_Kzre7Z67Eea1xtGdw7av1A" type="4003" source="_Kzq3AZ67Eea1xtGdw7av1A" target="_Kzq3D567Eea1xtGdw7av1A">
     <children xmi:type="notation:DecorationNode" xmi:id="_Kzre7p67Eea1xtGdw7av1A" type="6002">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_Kzre7567Eea1xtGdw7av1A" x="-13" y="-37"/>
@@ -435,7 +435,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_Kzre8Z67Eea1xtGdw7av1A" x="-3" y="-18"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_Kzre8p67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//DeclareModel/constraints"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//DeclareModel/constraints"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Kzre8567Eea1xtGdw7av1A" points="[0, 0, -319, -60]$[319, 60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Kzre9J67Eea1xtGdw7av1A" id="(0.5,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Kzre9Z67Eea1xtGdw7av1A" id="(0.15942028985507245,0.0)"/>
@@ -602,7 +602,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_K04X9p67Eea1xtGdw7av1A" x="23" y="15"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_K04X8Z67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//DeclareModel/activities"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//DeclareModel/activities"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K04X8p67Eea1xtGdw7av1A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_K06NJ567Eea1xtGdw7av1A" type="4002" source="_Kzq3D567Eea1xtGdw7av1A" target="_K0mEEJ67Eea1xtGdw7av1A">
@@ -613,7 +613,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_K060M567Eea1xtGdw7av1A" x="-8" y="12"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_K06NKJ67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//Constraint/source"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//Constraint/source"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K06NKZ67Eea1xtGdw7av1A" points="[-34, -13, 338, 51]$[-142, -53, 230, 11]$[-289, -61, 83, 3]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_K060NJ67Eea1xtGdw7av1A" type="4002" source="_Kzq3D567Eea1xtGdw7av1A" target="_K0mEEJ67Eea1xtGdw7av1A">
@@ -624,7 +624,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_K060Op67Eea1xtGdw7av1A" x="-6" y="12"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_K060NZ67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//Constraint/target"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//Constraint/target"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K060Np67Eea1xtGdw7av1A" points="[-34, 4, 338, 68]$[-178, 19, 194, 83]$[-289, -29, 83, 35]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_K07bQJ67Eea1xtGdw7av1A" type="4002" source="_K0mEEJ67Eea1xtGdw7av1A" target="_Kzq3D567Eea1xtGdw7av1A">
@@ -635,7 +635,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_K07bRp67Eea1xtGdw7av1A" x="1" y="10"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_K07bQZ67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//Activity/outgoing"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//Activity/outgoing"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K07bQp67Eea1xtGdw7av1A" points="[83, 8, -289, -56]$[230, 23, -142, -41]$[338, 54, -34, -10]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_K08CUJ67Eea1xtGdw7av1A" type="4002" source="_K0mEEJ67Eea1xtGdw7av1A" target="_Kzq3D567Eea1xtGdw7av1A">
@@ -646,7 +646,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_K08CVp67Eea1xtGdw7av1A" x="-2" y="12"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_K08CUZ67Eea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xmi:type="ecore:EReference" href="FinalModel.ecore#//Activity/incoming"/>
+    <element xmi:type="ecore:EReference" href="FinalModel-Constraints.ecore#//Activity/incoming"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K08CUp67Eea1xtGdw7av1A" points="[83, 40, -289, -24]$[194, 95, -178, 31]$[338, 70, -34, 6]"/>
   </edges>
 </notation:Diagram>
