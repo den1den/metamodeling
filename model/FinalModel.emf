@@ -74,10 +74,9 @@ class Succesion extends Arrowed {
 /* ChoiseTemplate */
 @gmf.node(label.placement="none", figure="polygon", polygon.x="0 20 40 20", polygon.y="20 40 20 0")
 class ChoiseTemplate {
-  attr int min;
-  attr int max;
+  attr int n;
   attr boolean exclusive;
-  ref ChoiseTemplateConnection[2]#choiseTemplate choiseLines;
+  ref ChoiseTemplateConnection[2..*]#choiseTemplate choiseLines;
 }
 
 @gmf.link(source="activity", target="choiseTemplate", incoming="true")
