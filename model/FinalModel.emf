@@ -35,8 +35,6 @@ class Last extends Activity {
 /* Links */
 @gmf.link(source="source", target="target")
 abstract class Constraint {
-  val Boolean negated;
-  val Integer lines;
   ref Activity[1]#outgoing source;
   ref Activity[1]#incoming target;
 }
@@ -50,10 +48,31 @@ abstract class Arrowed extends Constraint {
 class RespondedExistence extends Constraint {
 }
 
+class AlternatedRespondedExistence extends RespondedExistence {
+}
+
+class ChainRespondedExistence extends RespondedExistence {
+}
+
 /* O-----O */
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
 class CoExistence extends Constraint {
 	attr String dummyLabel;
+}
+
+class AlternatedCoExistence extends CoExistence {
+}
+
+class ChainCoExistence extends CoExistence {
+}
+
+class NotRespondedCoExistence extends CoExistence {
+}
+
+class NotAltRespondedCoExistence extends AlternatedCoExistence {
+}
+
+class NotChainRespondedCoExistence extends ChainCoExistence {
 }
 
 /* O-----> */
@@ -61,9 +80,21 @@ class CoExistence extends Constraint {
 class Response extends Arrowed {
 }
 
+class AlternatedResponse extends Response {
+}
+
+class ChainResponse extends Response {
+}
+
 /* ----->O */
 @gmf.link(target.decoration="myfigure.CircleArrowDecoration")
 class Precendence extends Arrowed {
+}
+
+class AlternatedPrecendence extends Precendence {
+}
+
+class ChainPrecendence extends Precendence {
 }
 
 /* O---->O */
@@ -71,13 +102,27 @@ class Precendence extends Arrowed {
 class Succesion extends Arrowed {
 }
 
+class AlternatedSuccesion extends Succesion {
+}
+
+class ChainSuccesion extends Succesion {
+}
+
+class NotRespPrecSucc extends Succesion {
+}
+
+class NotAltNotRespPrecSucc extends AlternatedSuccesion {
+}
+
+class NotChainNotRespPrecSucc extends ChainSuccesion {
+}
+
 /* ChoiseTemplate */
 @gmf.node(label.placement="none", figure="polygon", polygon.x="0 20 40 20", polygon.y="20 40 20 0")
 class ChoiseTemplate {
-  attr int min;
-  attr int max;
+  attr int n;
   attr boolean exclusive;
-  ref ChoiseTemplateConnection[2]#choiseTemplate choiseLines;
+  ref ChoiseTemplateConnection[2..*]#choiseTemplate choiseLines;
 }
 
 @gmf.link(source="activity", target="choiseTemplate", incoming="true")
