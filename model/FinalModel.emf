@@ -1,6 +1,8 @@
 @namespace(uri="finalmodel", prefix="")
 package finalmodel;
 
+// TODO: http://www.eclipse.org/epsilon/doc/articles/eugenia-affixed-nodes/
+
 @gmf.diagram
 class DeclareModel {
   val Activity[*] activities;
@@ -46,6 +48,7 @@ abstract class Arrowless extends Directional {
 
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
 class CoExistence extends Constraint {
+	attr String dummyLabel;
 }
 
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="arrow")
