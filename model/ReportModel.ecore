@@ -105,9 +105,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomming" upperBound="-1"
         eType="#//OutputArc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstrainedPlace" eSuperTypes="#//AbstractPlace"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StartPlace" eSuperTypes="#//ConstrainedPlace"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EndPlace" eSuperTypes="#//ConstrainedPlace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartPlace" eSuperTypes="#//AbstractPlace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndPlace" eSuperTypes="#//AbstractPlace"/>
   <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//AbstractPlace #//PetriNetElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Arc" abstract="true" eSuperTypes="#//PetriNetElement">
     <eAnnotations source="gmf.link">

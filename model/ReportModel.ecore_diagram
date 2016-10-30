@@ -255,23 +255,6 @@
     <element xmi:type="ecore:EClass" href="ReportModel.ecore#//AbstractPlace"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8DTTzp6yEea1xtGdw7av1A" x="372" y="516" height="217"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_8DTT2Z6yEea1xtGdw7av1A" type="2001" fontName="Ubuntu">
-    <children xmi:type="notation:DecorationNode" xmi:id="_8DTT256yEea1xtGdw7av1A" type="5001"/>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_8DTT3J6yEea1xtGdw7av1A" type="7001">
-      <styles xmi:type="notation:SortingStyle" xmi:id="_8DTT3Z6yEea1xtGdw7av1A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_8DTT3p6yEea1xtGdw7av1A"/>
-    </children>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_8DTT356yEea1xtGdw7av1A" type="7002">
-      <styles xmi:type="notation:SortingStyle" xmi:id="_8DTT4J6yEea1xtGdw7av1A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_8DTT4Z6yEea1xtGdw7av1A"/>
-    </children>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_8DT6sJ6yEea1xtGdw7av1A" type="7003">
-      <styles xmi:type="notation:SortingStyle" xmi:id="_8DT6sZ6yEea1xtGdw7av1A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_8DT6sp6yEea1xtGdw7av1A"/>
-    </children>
-    <element xmi:type="ecore:EClass" href="ReportModel.ecore#//ConstrainedPlace"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8DTT2p6yEea1xtGdw7av1A" x="120" y="576"/>
-  </children>
   <children xmi:type="notation:Shape" xmi:id="_8DT6s56yEea1xtGdw7av1A" type="2001" fontName="Ubuntu">
     <children xmi:type="notation:DecorationNode" xmi:id="_8DT6tZ6yEea1xtGdw7av1A" type="5001"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_8DT6tp6yEea1xtGdw7av1A" type="7001">
@@ -712,27 +695,6 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EveFJ6yEea1xtGdw7av1A" id="(0.8905109489051095,0.7419354838709677)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EveFZ6yEea1xtGdw7av1A" id="(0.17391304347826086,0.39759036144578314)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_8EHL8J6yEea1xtGdw7av1A" type="4004" source="_8DTT2Z6yEea1xtGdw7av1A" target="_8DTTzZ6yEea1xtGdw7av1A">
-    <styles xmi:type="notation:FontStyle" xmi:id="_8EHL8Z6yEea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8EHL8p6yEea1xtGdw7av1A" points="[0, 0, 0, -99]$[0, 99, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EuP9p6yEea1xtGdw7av1A" id="(0.9411764705882353,0.6949152542372882)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EuP956yEea1xtGdw7av1A" id="(0.058394160583941604,0.46543778801843316)"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_8EHzA56yEea1xtGdw7av1A" type="4004" source="_8DT6s56yEea1xtGdw7av1A" target="_8DTT2Z6yEea1xtGdw7av1A">
-    <styles xmi:type="notation:FontStyle" xmi:id="_8EHzBJ6yEea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8EHzBZ6yEea1xtGdw7av1A" points="[0, 0, 137, -60]$[-137, 60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EuP8p6yEea1xtGdw7av1A" id="(0.5,1.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EuP856yEea1xtGdw7av1A" id="(0.3333333333333333,0.0)"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_8EIaEJ6yEea1xtGdw7av1A" type="4004" source="_8DT6v56yEea1xtGdw7av1A" target="_8DTT2Z6yEea1xtGdw7av1A">
-    <styles xmi:type="notation:FontStyle" xmi:id="_8EIaEZ6yEea1xtGdw7av1A" fontName="Ubuntu"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8EIaEp6yEea1xtGdw7av1A" points="[0, 0, 237, -60]$[-237, 60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EwFIZ6yEea1xtGdw7av1A" id="(0.5,1.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EwFIp6yEea1xtGdw7av1A" id="(0.6666666666666666,0.0)"/>
-  </edges>
   <edges xmi:type="notation:Connector" xmi:id="_8EIaE56yEea1xtGdw7av1A" type="4004" source="_8DT6y56yEea1xtGdw7av1A" target="_8DTTzZ6yEea1xtGdw7av1A">
     <styles xmi:type="notation:FontStyle" xmi:id="_8EIaFJ6yEea1xtGdw7av1A" fontName="Ubuntu"/>
     <element xsi:nil="true"/>
@@ -857,5 +819,19 @@
     <element xmi:type="ecore:EReference" href="ReportModel.ecore#//Activity/undirected"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xJfKEp61Eea1xtGdw7av1A" points="[0, 0, -191, 8]$[184, -44, -7, -36]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xJi0cJ61Eea1xtGdw7av1A" id="(1.0,0.2430939226519337)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_JbN9sJ64Eea1xtGdw7av1A" type="4004" source="_8DT6v56yEea1xtGdw7av1A" target="_8DTTzZ6yEea1xtGdw7av1A">
+    <styles xmi:type="notation:FontStyle" xmi:id="_JbN9sZ64Eea1xtGdw7av1A" fontName="Ubuntu"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JbN9sp64Eea1xtGdw7av1A" points="[0, 3, -120, -61]$[0, 64, -120, 0]$[119, 64, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JbQZ8J64Eea1xtGdw7av1A" id="(0.4032258064516129,0.9423076923076923)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_L0F5kJ64Eea1xtGdw7av1A" id="(0.0072992700729927005,0.07834101382488479)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_J-0aAJ64Eea1xtGdw7av1A" type="4004" source="_8DT6s56yEea1xtGdw7av1A" target="_8DTTzZ6yEea1xtGdw7av1A">
+    <styles xmi:type="notation:FontStyle" xmi:id="_J-0aAZ64Eea1xtGdw7av1A" fontName="Ubuntu"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J-0aAp64Eea1xtGdw7av1A" points="[0, 6, -278, -112]$[0, 110, -278, -8]$[277, 110, -1, -8]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J-3dUJ64Eea1xtGdw7av1A" id="(0.5223880597014925,0.8846153846153846)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MKMFYJ64Eea1xtGdw7av1A" id="(0.0072992700729927005,0.31336405529953915)"/>
   </edges>
 </notation:Diagram>
