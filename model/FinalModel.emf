@@ -18,9 +18,13 @@ class Activity {
   attr int upperBoundCardinality;
   ref Constraint[*]#source outgoing;
   ref Constraint[*]#target incoming;
-  ref ChoiseTemplateConnection[*] choiseLines;
+  ref ChoiseTemplateConnection[*]#activity choiseLines;
+  @gmf.compartment
+  val StartPlace[1] startPlace;
   @gmf.compartment
   val PetriNetElement[*] petriNetElements;
+  @gmf.compartment
+  val EndPlace[1] endPlace;
 }
 
 @gmd.node(figure="myfigure.StringBoxShape.Init")
@@ -30,60 +34,112 @@ class Initial extends Activity {
 class Last extends Activity {
 }
 
+/* Links */
 @gmf.link(source="source", target="target")
 abstract class Constraint {
-  attr boolean negated;
   ref Activity[1]#outgoing source;
   ref Activity[1]#incoming target;
 }
 
-abstract class Directional extends Constraint {
+@gmf.link(target.decoration="arrow")
+abstract class Arrowed extends Constraint {
 }
 
-abstract class Arrowed extends Directional {
+/* O------ */
+@gmf.link(source.decoration="myfigure.CircleDecoration")
+class RespondedExistence extends Constraint {
 }
 
-abstract class Arrowless extends Directional {
+class AlternatedRespondedExistence extends RespondedExistence {
 }
 
+class ChainRespondedExistence extends RespondedExistence {
+}
+
+/* O-----O */
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
 class CoExistence extends Constraint {
 	attr String dummyLabel;
 }
 
-@gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="arrow")
+class AlternatedCoExistence extends CoExistence {
+}
+
+class ChainCoExistence extends CoExistence {
+}
+
+class NotRespondedCoExistence extends CoExistence {
+}
+
+class NotAltRespondedCoExistence extends AlternatedCoExistence {
+}
+
+class NotChainRespondedCoExistence extends ChainCoExistence {
+}
+
+/* O-----> */
+@gmf.link(source.decoration="myfigure.CircleDecoration")
 class Response extends Arrowed {
 }
 
+class AlternatedResponse extends Response {
+}
+
+class ChainResponse extends Response {
+}
+
+/* ----->O */
 @gmf.link(target.decoration="myfigure.CircleArrowDecoration")
 class Precendence extends Arrowed {
 }
 
+class AlternatedPrecendence extends Precendence {
+}
+
+class ChainPrecendence extends Precendence {
+}
+
+/* O---->O */
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleArrowDecoration")
 class Succesion extends Arrowed {
 }
 
-@gmf.link(source.decoration="myfigure.CircleDecoration")
-class RespondedExistence extends Arrowless {
+class AlternatedSuccesion extends Succesion {
 }
 
+class ChainSuccesion extends Succesion {
+}
+
+class NotRespPrecSucc extends Succesion {
+}
+
+class NotAltNotRespPrecSucc extends AlternatedSuccesion {
+}
+
+class NotChainNotRespPrecSucc extends ChainSuccesion {
+}
+
+/* ChoiseTemplate */
 @gmf.node(label.placement="none", figure="polygon", polygon.x="0 20 40 20", polygon.y="20 40 20 0")
 class ChoiseTemplate {
   attr int min;
   attr int max;
   attr boolean exclusive;
-  ref ChoiseTemplateConnection[*] choiseLines;
+  ref ChoiseTemplateConnection[2]#choiseTemplate choiseLines;
 }
 
 @gmf.link(source="activity", target="choiseTemplate", incoming="true")
 class ChoiseTemplateConnection {
-  ref ChoiseTemplate[1] choiseTemplate;
-  ref Activity[1] activity;
+  ref ChoiseTemplate[1]#choiseLines choiseTemplate;
+  ref Activity[1]#choiseLines activity;
 }
 
 /******************* Petrinet *******************/
 
 abstract class PetriNetElement {
+}
+
+abstract class ConstrainedPetriNetElement {
 }
 
 @gmf.node(label="name")
@@ -94,7 +150,7 @@ class Transition extends PetriNetElement {
 }
 
 @gmf.node(label="name", figure="ellipse")
-abstract class AbstractPlace extends PetriNetElement {
+abstract class AbstractPlace {
   attr String name;
   attr int capacity;
   attr int numberOfTokens;
@@ -102,16 +158,19 @@ abstract class AbstractPlace extends PetriNetElement {
   ref OutputArc[*] incomming;
 }
 
+@gmf.node(label="name", figure="ellipse")
+class ConstrainedPlace extends AbstractPlace, ConstrainedPetriNetElement {
+}
+
 @gmf.node(figure="myfigure.ElipseWithDot")
-class StartPlace extends AbstractPlace {
+class StartPlace extends ConstrainedPlace {
 }
 
 @gmf.node(border.width="2")
-class EndPlace extends AbstractPlace {
+class EndPlace extends ConstrainedPlace {
 }
 
-class Place extends AbstractPlace {
-	
+class Place extends AbstractPlace, PetriNetElement {
 }
 
 @gmf.link(source="source", target="target", target.decoration="arrow")

@@ -1,68 +1,50 @@
-var ecore_association = ECore!EClass.all.selectOne(c|c.name = "Association");
-var activity_label = GmfGraph!Label.all.selectOne(l|l.name="ActivityLabelFigure");
-
-var co_existence_label = new GmfGraph!Label;
-//co_existence_label.name = 'RuleNacsCompartmentFigureLabel';
-//co_existence_label.text = 'NACs Compartment';
-//co_existence.children.add(co_existence_label);
-
-var association = ECore!EClass.all.selectOne(c|c.name = "CoExistence");
-association.createLinkEndLabel("dummyLabel", true);
-
-activity_label.makeVertical();
-
-operation ECore!EClass createLinkLabel(attribute:String, text:String){
-  var labelName = self.name + "CustomLabel";
-  
-  // Create the figure descriptor and the label
-  var labelFigureDescriptor = 
-    createFigureDescriptor(labelName + "Figure");
-  var label = new GmfGraph!Label;
-  label.name = labelName;
-  label.text = text;
-  labelFigureDescriptor.actualFigure = label;
-  
-  // Create the diagram label
-  var diagramLabel = new GmfGraph!DiagramLabel;
-  diagramLabel.figure = labelFigureDescriptor;
-  diagramLabel.name = labelName;
-  diagramLabel.elementIcon = false;
-  GmfGraph!Canvas.all.first().labels.add(diagramLabel);
-  
-  // Specify how far the label should be from the line
-  var labelOffsetFacet = new GmfGraph!LabelOffsetFacet;
-  labelOffsetFacet.x = 5;
-  labelOffsetFacet.y = 5;
-  diagramLabel.facets.add(labelOffsetFacet);
-  
-  var featureLabelMapping = new GmfMap!FeatureLabelMapping;
-  featureLabelMapping.diagramLabel = diagramLabel;
-  
-  var linkMapping = GmfMap!LinkMapping.all.
-    selectOne(lm|lm.domainMetaElement = self);
-    
-  linkMapping.labelMappings.add(featureLabelMapping);
-
-  System.out.println("Created linklabel on "+self);
+for (negClass in ECore!EClass.all.select(c | c.name.startsWith("Not"))) {
+	var lineWidthType = 0;
+	var label = negClass.name.substring(3, negClass.name.length());
+	if(negClass.name.startsWith("NotAlt")){
+		lineWidthType = 1;
+	} else if(negClass.name.startsWith("NotChain")){
+		lineWidthType = 2;
+	}
+	negClass.addLabel("!" + label, lineWidthType);
 }
 
-operation ECore!EClass createLinkEndLabel(attribute:String, source:Boolean){
-  var endName;
-  if (source) {
-    endName = "Source";
+init("RespondedExistence");
+init("CoExistence");
+init("Response");
+init("Precendence");
+init("Succesion");
+
+operation init(conn:String){
+	var normalClass = ECore!EClass.all.selectOne(c|c.name = conn);
+	normalClass.addLabel(conn, 0);
+	
+	var altClass = ECore!EClass.all.selectOne(c|c.name = "Alternated" + conn);
+	altClass.addLabel("Alternated" + conn, 1);
+	
+	var chainClass = ECore!EClass.all.selectOne(c|c.name = "Chain" + conn);
+	chainClass.addLabel("Chain" + conn, 1);
+}
+
+operation ECore!EClass setNegatedPolyline(classname:String, lineWidthType:Integer){
+  System.out.println(classname + ".setNegatedPolyline()");
+}
+
+operation ECore!EClass addLabel(labelText:String, lineWidthType:Integer){
+  var labelName = self.name + "EolLabel";
+  var lineWidth = 1;
+  if (lineWidthType == 1) {
+  	lineWidth = 3;
+  } else if (lineWidthType >= 2) {
+  	lineWidth = 5;
   }
-  else {
-    endName = "Target";
-  }
-  
-  var labelName = self.name + endName + "Label";
   
   // Create the figure descriptor and the label
   var labelFigureDescriptor = 
     createFigureDescriptor(labelName + "Figure");
   var label = new GmfGraph!Label;
   label.name = labelName;
-  label.text = endName;
+  label.text = labelText;
   labelFigureDescriptor.actualFigure = label;
   
   // Create the diagram label
@@ -74,12 +56,7 @@ operation ECore!EClass createLinkEndLabel(attribute:String, source:Boolean){
   
   // Specify if the label will be placed at the beginning/end of the link
   var alignmentFacet =new GmfGraph!AlignmentFacet;
-  if (source){
-    alignmentFacet.alignment = GmfGraph!Alignment#END;
-  }
-  else {
-    alignmentFacet.alignment = GmfGraph!Alignment#BEGINNING;
-  }
+  alignmentFacet.alignment = GmfGraph!Alignment#CENTER;
   diagramLabel.facets.add(alignmentFacet);
   
   // Specify how far the label should be from the line
@@ -89,18 +66,50 @@ operation ECore!EClass createLinkEndLabel(attribute:String, source:Boolean){
   diagramLabel.facets.add(labelOffsetFacet);
   
   // Create the label/attribute mapping in the .gmfmap model
-  var featureLabelMapping = new GmfMap!FeatureLabelMapping;
-  featureLabelMapping.diagramLabel = diagramLabel;
+  var labelMapping = new GmfMap!LabelMapping;
+  labelMapping.diagramLabel = diagramLabel;
   
-  featureLabelMapping.features.add(self.eAllStructuralFeatures.
-    selectOne(sf|sf.name = attribute));
-    
-  featureLabelMapping.readOnly = false;
-  var linkMapping = GmfMap!LinkMapping.all.
-    selectOne(lm|lm.domainMetaElement = self);
-    
-  linkMapping.labelMappings.add(featureLabelMapping);
-
+  var linkMapping = GmfMap!LinkMapping.all.selectOne(lm|lm.domainMetaElement = self);
+  linkMapping.labelMappings.add(labelMapping);
+  
+  //Set line width
+  var ployLine = linkMapping.diagramLink.figure.actualFigure;
+  ployLine.lineWidth=lineWidth;
+  System.out.println(ployLine.name);
+  
+  if(ployLine.sourceDecoration.isDefined()){
+  	var sourceDecoration = ployLine.sourceDecoration;
+  	if(sourceDecoration.isTypeOf(GmfGraph!CustomDecoration)){
+  		if (lineWidthType == 1) {
+  			sourceDecoration.qualifiedClassName += ".Thick";
+  		} else if(lineWidthType >= 2) {
+  			sourceDecoration.qualifiedClassName += ".Thicker";
+  		}
+  		
+  		System.out.println("s: "+sourceDecoration.qualifiedClassName);
+  	} else {
+    	sourceDecoration.lineWidth=lineWidth;
+    	System.out.println("s: "+sourceDecoration.type.name);
+    }
+  	//sourceDecoration.lineWidth=lineWidth;
+  }
+  if(ployLine.targetDecoration.isDefined()){
+  	var targetDecoration = ployLine.targetDecoration;
+  	if(targetDecoration.isTypeOf(GmfGraph!CustomDecoration)){
+  		if (lineWidthType == 1) {
+  			targetDecoration.qualifiedClassName += ".Thick";
+  		} else if(lineWidthType >= 2) {
+  			targetDecoration.qualifiedClassName += ".Thicker";
+  		}
+  		
+  		System.out.println("t: "+targetDecoration.qualifiedClassName);
+    } else {
+    	targetDecoration.lineWidth=lineWidth;
+    	System.out.println("t: "+targetDecoration.type.name);
+    }
+  	//targetDecoration.lineWidth=lineWidth;
+  }
+  System.out.println();
 }
 
 operation createFigureDescriptor(name : String) {
@@ -110,60 +119,3 @@ operation createFigureDescriptor(name : String) {
   return figureDescriptor;
 }
 
-operation GmfGraph!Label makeVertical() {
-	var labelFigure = self;
-	var labelFigureName = labelFigure.name;
-	var labelFigureText = labelFigure.text;
-	var figure = labelFigure.eContainer();
-	var labelFigureChildAccess = GmfGraph!ChildAccess.all.selectOne(ca|ca.figure = labelFigure);
-	delete labelFigure;
-	labelFigure = new GmfGraph!VerticalLabel;
-	labelFigure.name = labelFigureName;
-	labelFigure.text = labelFigureText;
-	figure.children.add(0, labelFigure);
-	labelFigureChildAccess.figure = labelFigure;
-}
-
-
-
-
-//var responsePolyLine = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
-//responsePolyLine.linewidth=10;
-
-// modify ResponseFigure
-//var responsePL = GmfGraph!PolylineConnection.all.selectOne(l|l.name="ResponseFigure");
-//responsePL.name="ResponseFigure.old";
-//responsePL = new GmfGraph!PolylineConnection;
-//responsePL.name="ResponseFigure";
-//responsePL.linewidth=10;
-//GmfGraph!PolylineConnection.all.add(responsePL);
-
-//for(x in GmfMap!Link.all) {
-//	System.out.println("x: " + x);
-//}
-// FROM MAPPING
-//<links>
-//    <domainMetaElement
-//        href="Combined.ecore#//Response"/>
- //   <containmentFeature
-  //      href="Combined.ecore#//DeclareModel/constraints"/>
-   // <tool
-    //    xsi:type="gmftool:CreationTool"
-     //   href="Combined.gmftool#//@palette/@tools.1/@tools.5"/>
-//    <diagramLink
- ///       href="Combined.gmfgraph#Response"/>
-   // <sourceMetaFeature
-    //    xsi:type="ecore:EReference"
-     //   href="Combined.ecore#//Directional/activity_from"/>
-//    <linkMetaFeature
- ///       xsi:type="ecore:EReference"
-   //     href="Combined.ecore#//Directional/activity_to"/>
-  //</links>
-
-// Print all Figures
-//for (fig in GmfGraph!Figure.all){
-//	System.out.println(fig.name + ": " + fig.children.size());
-//	for (child in fig.children) {
-//		System.out.println(" - " + child.name);
-//	}
-//}

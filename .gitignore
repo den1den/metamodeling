@@ -17,6 +17,7 @@ model/*.trace
 .project
 .settings/
 src/declare/
+src/finalmodel/
 *.ecore.xml
 src/finalmodel/
 src/unittest/
