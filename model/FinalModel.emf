@@ -1,8 +1,6 @@
 @namespace(uri="finalmodel", prefix="")
 package finalmodel;
 
-// TODO: http://www.eclipse.org/epsilon/doc/articles/eugenia-affixed-nodes/
-
 @gmf.diagram
 class DeclareModel {
   val Activity[*] activities;
@@ -37,6 +35,8 @@ class Last extends Activity {
 /* Links */
 @gmf.link(source="source", target="target")
 abstract class Constraint {
+  val Boolean negated;
+  val Integer lines;
   ref Activity[1]#outgoing source;
   ref Activity[1]#incoming target;
 }
@@ -50,31 +50,10 @@ abstract class Arrowed extends Constraint {
 class RespondedExistence extends Constraint {
 }
 
-class AlternatedRespondedExistence extends RespondedExistence {
-}
-
-class ChainRespondedExistence extends RespondedExistence {
-}
-
 /* O-----O */
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleDecoration")
 class CoExistence extends Constraint {
 	attr String dummyLabel;
-}
-
-class AlternatedCoExistence extends CoExistence {
-}
-
-class ChainCoExistence extends CoExistence {
-}
-
-class NotRespondedCoExistence extends CoExistence {
-}
-
-class NotAltRespondedCoExistence extends AlternatedCoExistence {
-}
-
-class NotChainRespondedCoExistence extends ChainCoExistence {
 }
 
 /* O-----> */
@@ -82,41 +61,14 @@ class NotChainRespondedCoExistence extends ChainCoExistence {
 class Response extends Arrowed {
 }
 
-class AlternatedResponse extends Response {
-}
-
-class ChainResponse extends Response {
-}
-
 /* ----->O */
 @gmf.link(target.decoration="myfigure.CircleArrowDecoration")
 class Precendence extends Arrowed {
 }
 
-class AlternatedPrecendence extends Precendence {
-}
-
-class ChainPrecendence extends Precendence {
-}
-
 /* O---->O */
 @gmf.link(source.decoration="myfigure.CircleDecoration", target.decoration="myfigure.CircleArrowDecoration")
 class Succesion extends Arrowed {
-}
-
-class AlternatedSuccesion extends Succesion {
-}
-
-class ChainSuccesion extends Succesion {
-}
-
-class NotRespPrecSucc extends Succesion {
-}
-
-class NotAltNotRespPrecSucc extends AlternatedSuccesion {
-}
-
-class NotChainNotRespPrecSucc extends ChainSuccesion {
 }
 
 /* ChoiseTemplate */
