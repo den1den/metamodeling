@@ -22,9 +22,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBoundCardinality"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
-        eType="#//Constraint" eOpposite="#//Constraint/source"/>
+        eType="#//Directed" eOpposite="#//Directed/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
-        eType="#//Constraint" eOpposite="#//Constraint/target"/>
+        eType="#//Directed" eOpposite="#//Directed/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choiseLines" upperBound="-1"
         eType="#//ChoiseTemplateConnection" eOpposite="#//ChoiseTemplateConnection/activity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startPlace" lowerBound="1"
@@ -39,12 +39,9 @@
         eType="#//EndPlace" containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="undirected" eType="#//Undirected"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//Activity">
-    <eAnnotations source="gmd.node">
-      <details key="figure" value="myfigure.StringBoxShape.Init"/>
-    </eAnnotations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//Activity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Last" eSuperTypes="#//Activity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true">
     <eAnnotations source="gmf.link">
@@ -55,39 +52,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Activity" eOpposite="#//Activity/outgoing"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Activity" eOpposite="#//Activity/incoming"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RespondedExistence" eSuperTypes="#//Directed">
-    <eAnnotations source="gmf.link">
-      <details key="source.decoration" value="myfigure.CircleDecoration"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CoExistence" eSuperTypes="#//Undirected">
-    <eAnnotations source="gmf.link">
-      <details key="source.decoration" value="myfigure.CircleDecoration"/>
-      <details key="target.decoration" value="myfigure.CircleDecoration"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//Directed">
-    <eAnnotations source="gmf.link">
-      <details key="source.decoration" value="myfigure.CircleDecoration"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Precendence" eSuperTypes="#//Directed">
-    <eAnnotations source="gmf.link">
-      <details key="target.decoration" value="myfigure.CircleArrowDecoration"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Succesion" eSuperTypes="#//Directed">
-    <eAnnotations source="gmf.link">
-      <details key="source.decoration" value="myfigure.CircleDecoration"/>
-      <details key="target.decoration" value="myfigure.CircleArrowDecoration"/>
-    </eAnnotations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RespondedExistence" eSuperTypes="#//Directed"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CoExistence" eSuperTypes="#//Undirected"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//Directed"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Precendence" eSuperTypes="#//Directed"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Succesion" eSuperTypes="#//Directed"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChoiseTemplate">
     <eAnnotations source="gmf.node">
       <details key="label.placement" value="none"/>
@@ -95,8 +65,7 @@
       <details key="polygon.x" value="0 20 40 20"/>
       <details key="polygon.y" value="20 40 20 0"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exclusive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choiseLines" lowerBound="2"
         upperBound="2" eType="#//ChoiseTemplateConnection" eOpposite="#//ChoiseTemplateConnection/choiseTemplate"/>
@@ -136,22 +105,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomming" upperBound="-1"
         eType="#//OutputArc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstrainedPlace" eSuperTypes="#//AbstractPlace">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-      <details key="figure" value="ellipse"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StartPlace" eSuperTypes="#//ConstrainedPlace">
-    <eAnnotations source="gmf.node">
-      <details key="figure" value="myfigure.ElipseWithDot"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EndPlace" eSuperTypes="#//ConstrainedPlace">
-    <eAnnotations source="gmf.node">
-      <details key="border.width" value="2"/>
-    </eAnnotations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstrainedPlace" eSuperTypes="#//AbstractPlace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartPlace" eSuperTypes="#//ConstrainedPlace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndPlace" eSuperTypes="#//ConstrainedPlace"/>
   <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//AbstractPlace #//PetriNetElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Arc" abstract="true" eSuperTypes="#//PetriNetElement">
     <eAnnotations source="gmf.link">
@@ -161,19 +117,25 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputArc" eSuperTypes="#//Arc">
-    <eAnnotations source="gmf.link"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//AbstractPlace"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Transition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputArc" eSuperTypes="#//Arc">
-    <eAnnotations source="gmf.link"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Transition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//AbstractPlace"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Directed" eSuperTypes="#//Constraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Undirected" eSuperTypes="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Directed" eSuperTypes="#//Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Activity" eOpposite="#//Activity/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Activity" eOpposite="#//Activity/outgoing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Undirected" eSuperTypes="#//Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activities" lowerBound="2"
+        upperBound="2" eType="#//Activity"/>
+  </eClassifiers>
 </ecore:EPackage>
