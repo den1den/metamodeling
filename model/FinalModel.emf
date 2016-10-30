@@ -125,7 +125,7 @@ class ChoiseTemplate {
   attr int min;
   attr int max;
   attr boolean exclusive;
-  ref ChoiseTemplateConnection[2]#choiseTemplate choiseLines;
+  ref ChoiseTemplateConnection[2..*]#choiseTemplate choiseLines;
 }
 
 @gmf.link(source="activity", target="choiseTemplate", incoming="true")
